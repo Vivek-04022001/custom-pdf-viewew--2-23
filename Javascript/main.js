@@ -1,6 +1,8 @@
 const pdfUrl = "../Docs/DBMS.pdf";
 const inputPage = document.querySelector("#goToPage");
 const goToBtn = document.querySelector("#goToBtn");
+const inputPdf = document.querySelector('#inputPdf');
+
 
 let pdfDoc = null,
   pageNum = 1,
@@ -95,3 +97,7 @@ document.querySelector("#next-page").addEventListener("click", showNextPage);
 inputPage.addEventListener("input", function (e) {
   renderPage(+inputPage.value);
 });
+
+inputPdf.addEventListener('change',function(e){
+    
+})

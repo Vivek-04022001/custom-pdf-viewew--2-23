@@ -3,17 +3,21 @@
     padding:0;
     /* outline: 1px solid yellow; */
 }
+body{
+    overflow:hidden;
+    background-color: steelblue;
+}
 
 .top-bar{
     width:100%;
-    background: #333;
+    background: #002244;
     color:#fff;
     padding: 1rem;
     
 }
 .top-bar div{
-    max-width: 75%;
-    width: 600px;
+    max-width: 85%;
+    width: 750px;
     margin:auto;
     display:flex;
     justify-content:space-between;
@@ -21,9 +25,10 @@
 }
 
 .btn{
-    background: coral;
+    /* background: coral; */
+    background:#003153;
     color: #fff;
-    border:none;
+    border:1px solid white;
     outline: none;
     cursor:pointer;
     padding: 0.7rem 2rem;
@@ -48,10 +53,10 @@
     border: none;
     height: 20px;
     padding: 1.2em;
+    width: 135px;
+    outline:none;
 }
-.goToPageInput::placeholder{
-    
-}
+
 
 
 #pdf-render{
@@ -61,4 +66,7 @@
     margin-top: 30px;
     max-width: 85%;
     max-height: 80%;
+}
+.inputPdf {
+    display:none;
 }
