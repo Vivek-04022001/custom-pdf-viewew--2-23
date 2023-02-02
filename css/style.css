@@ -1,0 +1,64 @@
+*{
+    margin:0;
+    padding:0;
+    /* outline: 1px solid yellow; */
+}
+
+.top-bar{
+    width:100%;
+    background: #333;
+    color:#fff;
+    padding: 1rem;
+    
+}
+.top-bar div{
+    max-width: 75%;
+    width: 600px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.btn{
+    background: coral;
+    color: #fff;
+    border:none;
+    outline: none;
+    cursor:pointer;
+    padding: 0.7rem 2rem;
+    border-radius: 20px;
+}
+
+.btn:hover{
+    opacity: 0.9;
+}
+
+.page-info{
+    margin-left:1em;
+}
+
+.error{
+    background: orangered;
+    color:#fff;
+    padding: 1em;
+}
+.goToPageInput{
+    border-radius: 1.2em;
+    border: none;
+    height: 20px;
+    padding: 1.2em;
+}
+.goToPageInput::placeholder{
+    
+}
+
+
+#pdf-render{
+    border:2px solid black;
+    margin:auto;
+    display:block;
+    margin-top: 30px;
+    max-width: 85%;
+    max-height: 80%;
+}

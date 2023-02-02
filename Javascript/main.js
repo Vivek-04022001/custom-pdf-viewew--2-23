@@ -1,4 +1,6 @@
 const pdfUrl = "../Docs/DBMS.pdf";
+const inputPage = document.querySelector("#goToPage");
+const goToBtn = document.querySelector("#goToBtn");
 
 let pdfDoc = null,
   pageNum = 1,
@@ -39,45 +41,57 @@ const renderPage = (num) => {
 };
 
 // check for pages rendering
-const queueRenderPage = num =>{
-    if(pageIsRendering){
-        pageNumIsPending = num;
-    }
-    else{
-        renderPage(num);
-    }
-}
-
+const queueRenderPage = (num) => {
+  if (pageIsRendering) {
+    pageNumIsPending = num;
+  } else {
+    renderPage(num);
+  }
+};
 
 // show Previous page
-const showPrevPage = ()=>{
-    if(pageNum <=1){
-        return;
-    }
-    pageNum-- ;
-    queueRenderPage(pageNum);
-}
+const showPrevPage = () => {
+  if (pageNum <= 1) {
+    return;
+  }
+  pageNum--;
+  queueRenderPage(pageNum);
+};
 
 // show next page
-const showNextPage = ()=>{
-    if(pageNum >= pdfDoc.numPages){
-        return
-    }
-    pageNum++ ;
-    queueRenderPage(pageNum);
-}
+const showNextPage = () => {
+  if (pageNum >= pdfDoc.numPages) {
+    return;
+  }
+  pageNum++;
+  queueRenderPage(pageNum);
+};
 
 // get Document
-pdfjsLib.getDocument(pdfUrl).promise.then((pdfDoc_) => {
-  pdfDoc = pdfDoc_;
-  console.log(pdfDoc.numPages);
+pdfjsLib
+  .getDocument(pdfUrl)
+  .promise.then((pdfDoc_) => {
+    pdfDoc = pdfDoc_;
 
-  document.querySelector("#page-count").textContent = pdfDoc.numPages;
+    document.querySelector("#page-count").textContent = pdfDoc.numPages;
 
-  renderPage(pageNum);
-});
+    renderPage(pageNum);
+  })
+  .catch((error) => {
+    // display error
+    const div = document.createElement("div");
+    div.className = "error";
+    div.appendChild(document.createTextNode(error.message));
+    document.querySelector("body").insertBefore(div, canvas);
+
+    // remove top bar
+    document.querySelector(".top-bar").style.display = "none";
+  });
 
 // Buttons events
 
-document.querySelector('#prev-page').addEventListener('click', showPrevPage);
-document.querySelector('#next-page').addEventListener('click', showNextPage);
+document.querySelector("#prev-page").addEventListener("click", showPrevPage);
+document.querySelector("#next-page").addEventListener("click", showNextPage);
+inputPage.addEventListener("input", function (e) {
+  renderPage(+inputPage.value);
+});
