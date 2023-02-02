@@ -1,1 +1,2 @@
-> pdf.js
+> pdf.js 
+> download pdf.js libraray
