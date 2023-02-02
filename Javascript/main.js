@@ -1,8 +1,7 @@
-const pdfUrl = "../Docs/DBMS.pdf";
 const inputPage = document.querySelector("#goToPage");
 const goToBtn = document.querySelector("#goToBtn");
-const inputPdf = document.querySelector('#inputPdf');
-
+const inputPdf = document.querySelector("#inputPdf");
+let pdfUrl = "../Docs/DBMS.pdf";
 
 let pdfDoc = null,
   pageNum = 1,
@@ -12,6 +11,11 @@ let pdfDoc = null,
 const scale = 1.5,
   canvas = document.querySelector("#pdf-render");
 ctx = canvas.getContext("2d");
+
+
+
+console.log("hellow world");
+console.log(pdfUrl);
 
 //Render the page
 const renderPage = (num) => {
@@ -94,10 +98,7 @@ pdfjsLib
 
 document.querySelector("#prev-page").addEventListener("click", showPrevPage);
 document.querySelector("#next-page").addEventListener("click", showNextPage);
+
 inputPage.addEventListener("input", function (e) {
   renderPage(+inputPage.value);
 });
-
-inputPdf.addEventListener('change',function(e){
-    
-})
