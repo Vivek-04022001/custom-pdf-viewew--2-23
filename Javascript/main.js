@@ -14,9 +14,6 @@ ctx = canvas.getContext("2d");
 
 
 
-console.log("hellow world");
-console.log(pdfUrl);
-
 //Render the page
 const renderPage = (num) => {
   pageIsRendering = true;
